@@ -8,3 +8,10 @@
 <form action="/attack">
   <input margin-left:200px type="submit" value="Attack">
 </form>
+
+
+<% if @game.player_1.hit_points == 0 %>
+  <p> <%=@game.player_1.name%> has lost </p>
+  <%elsif @game.player_2.hit_points == 0  %>
+  <p> <%=@game.player_2.name%> has lost </p>
+<% end %>

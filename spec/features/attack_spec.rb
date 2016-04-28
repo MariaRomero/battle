@@ -17,4 +17,10 @@ feature 'Attack:' do
     click_button 'Attack'
     expect(page).to have_content ('Dave: 50HP')
   end
+
+  scenario 'player 2 looses and gets confirmation' do
+    sign_in_and_play
+    11.times { click_button 'Attack' }
+    expect(page).to have_content ('Mittens has lost')
+  end
 end
