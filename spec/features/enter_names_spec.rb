@@ -4,6 +4,7 @@ feature 'Enter names' do
     expect(page).to have_content 'Dave vs. Mittens'
   end
 end
+
 feature 'Hit points' do
   scenario 'view other players hit points' do
     sign_in_and_play

@@ -1,7 +1,8 @@
 require 'game'
 
 describe Game do
-  subject(:game) { Game.new }
+  subject(:game) { Game.new(player_1, player_2) }
+  let(:player_1) { spy(:player_1) }
   let(:player_2) { spy(:player_2) }
 
     it 'can attack a player' do
