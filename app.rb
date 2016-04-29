@@ -3,7 +3,11 @@ require './lib/player'
 require './lib/game'
 
 class Battle < Sinatra::Base
-  enable :sessions
+
+  before do
+    @game = Game.instance
+  end
+
   get '/' do
     erb :index
   end
@@ -14,12 +18,10 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    @game = Game.instance
     erb :play
   end
 
   get '/attack' do
-    @game = Game.instance
     @game.attack
     return erb :attack unless @game.game_over?
     redirect '/game_over'

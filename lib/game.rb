@@ -1,10 +1,11 @@
 class Game
-  attr_reader :player_1, :player_2
+  attr_reader :player_1, :player_2, :looser
 
   def initialize(player_1, player_2)
     @player_1 = player_1
     @player_2 = player_2
     @turn = 1
+    @looser = nil
   end
 
   def self.create(player1, player2)
@@ -31,11 +32,17 @@ class Game
   end
 
   def game_over?
-    @player_1.hit_points == 0 || @player_2.hit_points == 0
+    player_lost
+    !!@looser  
   end
 
   private
 
   attr_accessor :turn
+
+  def player_lost
+    @looser = @player_1 if @player_1.hit_points == 0
+    @looser = @player_2 if @player_2.hit_points == 0
+  end
 
 end
