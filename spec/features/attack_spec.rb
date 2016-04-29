@@ -21,6 +21,6 @@ feature 'Attack:' do
   scenario 'player 2 looses and gets confirmation' do
     sign_in_and_play
     11.times { click_button 'Attack' }
-    expect(page).to have_content ('Mittens has lost')
+    expect(page).to have_content ('Game Over!')
   end
 end

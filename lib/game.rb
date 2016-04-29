@@ -22,6 +22,10 @@ class Game
     @player_1
   end
 
+  def game_over?
+    @player_1.hit_points == 0 || @player_2.hit_points == 0
+  end
+
   private
 
   attr_accessor :turn
